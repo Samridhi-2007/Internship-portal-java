@@ -2,6 +2,8 @@ package com.internship.internshipmanagement.model;
 
 import jakarta.persistence.*;
 
+
+
 @Entity
 @Table(name = "feedbacks")
 public class Feedback {
@@ -11,6 +13,7 @@ public class Feedback {
     private Long id;
 
     private String comments;
+   
     private int rating; // 1-5
 
     @ManyToOne

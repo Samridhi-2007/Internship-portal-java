@@ -10,6 +10,9 @@ public class Internship {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    private User student;
 
     private String title;
     private String description;
