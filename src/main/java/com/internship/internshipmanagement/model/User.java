@@ -3,6 +3,8 @@ package com.internship.internshipmanagement.model;
 import jakarta.persistence.*;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -12,9 +14,17 @@ public class User {
     private Long id;
 
     private String name;
+    @Column(unique = true)
     private String email;
+
+    @JsonIgnore
     private String password;
-    private String role; // "ADMIN" or "STUDENT"
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    private List<Internship> internships;
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
     private List<Task> tasks;
@@ -35,8 +45,13 @@ public class User {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-    public String getRole() { return role; }
-    public void setRole(String role) { this.role = role; }
+    public Role getRole() { 
+        return role; 
+    }
+
+    public void setRole(Role role) { 
+        this.role = role; 
+    }
 
     public List<Task> getTasks() { return tasks; }
     public void setTasks(List<Task> tasks) { this.tasks = tasks; }
