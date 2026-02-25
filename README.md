@@ -12,4 +12,32 @@ This is a Spring Boot application for managing internship programs, including us
 Run the application using Maven:
 ```bash
 mvn spring-boot:run
+What Problem Is This Project Solving?
+🎯 Core Problem
+
+Students struggle to:
+
+Find internships in one organized place
+
+Track their applications
+
+Communicate with mentors
+
+Submit tasks in a structured way
+
+Mentors struggle to:
+
+Manage multiple interns
+
+Assign tasks
+
+Track submissions
+
+Admins struggle to:
+
+Manage users
+
+Control system access
+
+Maintain security
 ```
