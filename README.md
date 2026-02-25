@@ -23,21 +23,5 @@ Track their applications
 
 Communicate with mentors
 
-Submit tasks in a structured way
 
-Mentors struggle to:
-
-Manage multiple interns
-
-Assign tasks
-
-Track submissions
-
-Admins struggle to:
-
-Manage users
-
-Control system access
-
-Maintain security
 ```
