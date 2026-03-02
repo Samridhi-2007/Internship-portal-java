@@ -11,30 +11,39 @@ import java.util.List;
 public class TaskController {
 
     private final TaskService taskService;
-    public TaskController(TaskService taskService) { this.taskService = taskService; }
+
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;
+    }
 
     @GetMapping
-    public List<Task> getAllTasks() { return taskService.getAllTasks(); }
+    public List<Task> getAllTasks() {
+        return taskService.getAllTasks();
+    }
 
     @GetMapping("/student/{studentId}")
-    public List<Task> getTasksByStudent(@PathVariable Long studentId) {
+    public List<Task> getTasksByStudent(@PathVariable("studentId") Long studentId) {
         return taskService.getTasksByStudentId(studentId);
     }
 
     @GetMapping("/internship/{internshipId}")
-    public List<Task> getTasksByInternship(@PathVariable Long internshipId) {
+    public List<Task> getTasksByInternship(@PathVariable("internshipId") Long internshipId) {
         return taskService.getTasksByInternshipId(internshipId);
     }
 
     @PostMapping
-    public Task createTask(@RequestBody Task task) { return taskService.saveTask(task); }
+    public Task createTask(@RequestBody Task task) {
+        return taskService.saveTask(task);
+    }
 
     @PutMapping("/{id}")
-    public Task updateTask(@PathVariable Long id, @RequestBody Task task) {
+    public Task updateTask(@PathVariable("id") Long id, @RequestBody Task task) {
         task.setId(id);
         return taskService.saveTask(task);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteTask(@PathVariable Long id) { taskService.deleteTask(id); }
+    public void deleteTask(@PathVariable("id") Long id) {
+        taskService.deleteTask(id);
+    }
 }
