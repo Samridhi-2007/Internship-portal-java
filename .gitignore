@@ -32,6 +32,11 @@ build/
 ### VS Code ###
 .vscode/
 src/main/resources/application.properties
+
 *.class
-*.log
+
 target/
+
+spring-auth-out.log
+*.log
+
