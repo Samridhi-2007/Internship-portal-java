@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/internships")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping({"/intern/internships", "/recruiter/internships", "/admin/internships"})
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class InternshipController {
 
     private final InternshipService internshipService;

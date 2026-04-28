@@ -1,9 +1,7 @@
 package com.internship.internshipmanagement.model;
 
-	public enum Role {
-		   USER,
-	    ADMIN,
-	    STUDENT
-	}
-
-
+public enum Role {
+    INTERN,
+    RECRUITER,
+    ADMIN
+}

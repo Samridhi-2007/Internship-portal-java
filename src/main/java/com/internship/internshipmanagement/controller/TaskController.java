@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/tasks")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping({"/intern/tasks", "/recruiter/tasks", "/admin/tasks"})
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class TaskController {
 
     private final TaskService taskService;

@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/feedbacks")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping({"/intern/feedbacks", "/recruiter/feedbacks", "/admin/feedbacks"})
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class FeedbackController {
 
     private final FeedbackService feedbackService;
