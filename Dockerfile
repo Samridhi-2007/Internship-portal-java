@@ -1,24 +1,26 @@
-# Use OpenJDK 17 as base image
-FROM openjdk:17-jdk-slim
+# ===== BUILD STAGE =====
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
 
-# Set working directory
 WORKDIR /app
 
-# Copy mvnw and pom.xml first (to leverage Docker cache)
-COPY mvnw .
 COPY pom.xml .
+COPY mvnw .
+COPY .mvn .mvn
 
-# Copy source code
-COPY src ./src
-
-# Make mvnw executable
 RUN chmod +x mvnw
+RUN ./mvnw dependency:go-offline
 
-# Build the project
+COPY src ./src
 RUN ./mvnw clean package -DskipTests
 
-# Expose port 8082
+
+# ===== RUNTIME STAGE =====
+FROM eclipse-temurin:17-jdk
+
+WORKDIR /app
+
+COPY --from=builder /app/target/*.jar app.jar
+
 EXPOSE 8082
 
-# Start the app
-CMD ["java", "-jar", "target/internship-management-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]

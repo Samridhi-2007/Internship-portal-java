@@ -110,4 +110,9 @@ mvn spring-boot:run
 
 The application will start on:
 
-http://localhost:8080
+http://localhost:8082
+
+Database notes:
+
+- Local run: by default the app connects to `jdbc:mysql://localhost:3306/internship_management`
+- Docker run: set `SPRING_DATASOURCE_URL` to the correct host, for example `jdbc:mysql://host.docker.internal:3306/internship_management?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC`
